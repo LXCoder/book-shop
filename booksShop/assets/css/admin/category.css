@@ -1,0 +1,22 @@
+﻿body {
+}
+
+i {
+    color: #494242;
+}
+
+td {
+    padding: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.oneLevel {
+    font-weight: 900;
+}
+
+.mytable {
+    table-layout:fixed;
+}

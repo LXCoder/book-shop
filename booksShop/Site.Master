@@ -1,0 +1,552 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="booksShop.Site" %>
+
+<%@ Import Namespace="booksShop.App_Code" %>
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+<head id="Head1" runat="server">
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>网上书城</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicon -->
+	<link rel="icon" href="assets/images/favicon.ico">
+	
+	<!-- CSS
+	============================================ -->
+	<!-- Bootstrap CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- FontAwesome CSS -->
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+
+	<!-- Ionicons CSS -->
+	<link href="assets/css/ionicons.min.css" rel="stylesheet" />
+
+	<!-- Plugins CSS -->
+	<link href="assets/css/plugins.css" rel="stylesheet" />
+
+	<!-- Helper CSS -->
+	<link href="assets/css/helper.css" rel="stylesheet" />
+
+	<!-- Main CSS -->
+	<link href="assets/css/main.css" rel="stylesheet" />
+
+	<!-- Toastr CSS -->
+	<link href="assets/css/toastr.min.css" rel="stylesheet"/>
+
+	<!-- Sweetalert2 CSS -->
+	<link href="assets/css/sweetalert2.min.css" rel="stylesheet" />
+
+	<!-- Sweetalert2 JS -->
+	<script src="assets/js/sweetalert2.all.min.js"></script>
+	<script src="assets/js/sweetalert2.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+	<!-- Toastr JS -->
+	<script src="assets/js/toastr.min.js"></script>
+
+	<!-- Modernizer JS -->
+	<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+	<!-- jQuery JS -->
+	<script src="assets/js/vendor/jquery.min.js"></script>
+
+	<script src="assets/js/cart/cart.js"></script>
+
+	<style type="text/css">
+		.container-fluid {
+			width: 100%;
+			padding-right: 15px;
+			padding-left: 15px;
+			padding-bottom:30px;
+			padding-top:30px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.labelError {
+			line-height: 32px;
+			font-size: 10pt;
+			color: #f40000;
+			border: 1px #ffb8b8 solid;
+			padding: 0px 8px 3px 30px;
+			margin: 5px 0px 0px 0px;
+			background: url(assets/images/icons/error.png) no-repeat;
+			background-color: #fef2f2;
+		}
+        .activexing {
+			color:#9acf6a;
+            
+		}
+	    .headTitle a {
+	        color:red;
+        }
+	</style>
+
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<!--=============================================
+		=            头部            =
+		=============================================-->
+	<%
+
+		string username = "账户";
+		if (flag)
+			username = user.loginname;
+	%>
+
+	<div class="header-container header-sticky">
+
+		<!--=============================================
+		=           第一层         =
+		=============================================-->
+
+		<div class="header-top pt-15 pb-15">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-6">
+						<div class="header-top-text text-center text-lg-left mb-0 mb-md-15 mb-sm-15">
+							<p><i class="icon ion-md-alarm"></i><span id="currenTime" class="support-no"></span></p>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6">
+						<!--=======  header top dropdowns  =======-->
+
+						<div class="header-top-dropdown d-flex justify-content-center justify-content-lg-end">
+
+							<!--=======  single dropdown  =======-->
+
+							<div class="single-dropdown">
+								<a href="#" id="changeAccount"><span id="accountMenuName"><%=username %> <i class="fa fa-angle-down"></i></span></a>
+								<div class="language-currency-list hidden" id="accountList">
+									<ul>
+										
+										
+										<% if (flag)
+										   {
+										%>
+										<li><a href="myAccount.aspx">个人中心</a></li>
+										<li><a href="cart.aspx">购物车</a></li>
+										<!-- <li><a href="javascript:jiesuan()">结算</a></li> -->
+										<li><a href="login.aspx?method=exit">退出</a></li>
+
+										<% }
+										   else
+										   {
+										%>
+										<li><a href="login.aspx">登陆</a></li>
+										<li><a href="register.aspx">注册</a></li>
+										<% } %>
+									</ul>
+								</div>
+							</div>
+							<!--=======  End of single dropdown  =======-->
+						</div>
+						<!--=======  End of header top dropdowns  =======-->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--=====  End of 第一层  ======-->
+
+		<!--=============================================
+		=            第二层            =
+		=============================================-->
+
+
+		<div class="navigation-menu-top pt-35 pb-35 pt-md-15 pb-md-15 pt-sm-15 pb-sm-15">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-6 col-lg-2 col-md-6 col-sm-6 order-1 order-lg-1">
+						<!--=======  logo  =======-->
+
+						<div class="logo">
+							<a href="index.aspx">
+								<img src="assets/images/logo4.png" class="img-fluid" alt="">
+							</a>
+						</div>
+
+						<!--=======  End of logo  =======-->
+					</div>
+					<div class="col-12 col-lg-10 col-md-12 col-sm-12 order-3 order-lg-2" style="max-width:65.88%">
+						<!--=======  header feature container  =======-->
+
+						<div class="header-feature-container mt-md-15 mt-sm-15">
+							<!--=======  single feature  =======-->
+
+							<div class="single-feature d-flex">
+								<div class="image">
+									<i class="icon ion-md-globe"></i>
+								</div>
+								<div class="content">
+									
+									<p>全部订单民免邮</p>
+								</div>
+							</div>
+
+							<!--=======  End of single feature  =======-->
+							<!--=======  single feature  =======-->
+
+							<div class="single-feature d-flex">
+								<div class="image">
+									<i class="icon ion-md-checkmark-circle-outline"></i>
+								</div>
+								<div class="content">
+									
+									<p>七天内无条件退款</p>
+								</div>
+							</div>
+
+							<!--=======  End of single feature  =======-->
+							<!--=======  single feature  =======-->
+
+							<div class="single-feature d-flex mb-sm-0">
+								<div class="image">
+									<i class="icon ion-md-notifications-outline"></i>
+								</div>
+								<div class="content">
+									<p>有折扣</p>
+								</div>
+							</div>
+
+							<!--=======  End of single feature  =======-->
+
+
+						</div>
+
+						<!--=======  End of header feature container  =======-->
+
+
+					</div>
+
+					<%
+						if (flag)
+						{
+							decimal subtotal = 0;
+							for (int j = 0; j < cartItemList.Count; j++)
+							{
+								subtotal += cartItemList[j].subtotal;
+							}
+					%>
+
+					<div class=" col-6 col-lg-2 col-md-6 col-sm-6 order-2 order-lg-3">
+						<!--=======  cart icon  =======-->
+
+						<div class="minicart-section">
+							<a href="#" id="cart-icon">
+								<span class="image"><i class="icon ion-md-cart"></i></span>
+								<h5>&yen;<span id="indexSutotal2"><%=subtotal %></span> <i class="fa fa-angle-down"></i></h5>
+								<p><span id="indexCount"><%=cartItemList.Count %></span> items</p>
+							</a>
+
+							<!-- cart floating box -->
+							<div class="cart-floating-box hidden" id="cart-floating-box">
+								<div id="indexCart" class="cart-items">
+						<%
+							for (int i = 0; i < cartItemList.Count; i++)
+							{
+						%>
+									<div id="<%=cartItemList[i].cartItemId_ %>View" class="cart-float-single-item d-flex">
+										<span class="remove-item" ><a id="<%=cartItemList[i].cartItemId_ %>Close" class="delete"><i class="icon ion-md-close"></i></a></span>
+										<div class="cart-float-single-item-image">
+											<a href="single-product.aspx?method=findByBid&bid=<%=cartItemList[i].Book.bid %>">
+												<img src="assets/images/<%=cartItemList[i].Book.image_b %>" class="img-fluid" alt=""></a>
+										</div>
+										<div class="cart-float-single-item-desc">
+											<p class="product-title"><a href="single-product.aspx?method=findByBid&bid=<%=cartItemList[i].Book.bid %>"><%=cartItemList[i].Book.bname %></a></p>
+											<p class="quantity">数量: <span id="<%=cartItemList[i].cartItemId_ %>IndexQuantity"><%=cartItemList[i].quantity_ %></span> </p>
+											<p class="price">&yen;<span id="<%=cartItemList[i].cartItemId_ %>Price"><%=cartItemList[i].subtotal %></span></p>
+										</div>
+									</div>
+						<%
+							}
+						%>
+									
+								</div>
+						<%
+							if (cartItemList.Count > 0)
+							{
+						%>
+								<div class="cart-calculation">
+									<div class="calculation-details">
+										<p class="total">总计 <span>&yen;<span id="indexSutotal"><%=subtotal %></span></span></p>
+									</div>
+									<div class="floating-cart-btn text-center">
+										<a class="fl-btn pull-left" href="cart.aspx">购物车</a>
+										
+									</div>
+								</div>
+						<%                 
+							}          
+						%>
+								
+							</div>
+							<!-- end of cart floating box -->
+						</div>
+
+						<!--=======  End of cart icon  =======-->
+					</div>
+
+					<%   
+						}     
+					%>
+					
+				</div>
+			</div>
+		</div>
+
+		<!--=======  End of 第二层  =======-->
+
+		<!--=============================================
+		=            导航栏         =
+		=============================================-->
+
+		<div class="navigation-menu" style="background-color:white">
+			<div class="container">
+				<div class="row align-items-center justify-content-between">
+					<div class="col-12 col-lg-3 col-md-12 col-sm-12">
+						<!--=======  category menu  =======-->
+
+						<div class="hero-side-category">
+							<!-- Category Toggle Wrap -->
+							<div class="category-toggle-wrap">
+								<!-- Category Toggle -->
+								<button class="category-toggle"><i class="fa fa-bars"></i>分类 </button>
+							</div>
+
+							<!-- Category Menu -->
+							<nav class="category-menu">
+								<ul>
+
+									<%
+										for (int i = 0; i < categories.Count; i++)
+										{
+											if (categories[i].childrens.Count > 0)
+											{
+												if (i < 4)
+												{
+									%>
+									<li class="menu-item-has-children"><a href="#"><%=categories[i].cname %></a>
+										<%          }
+												else
+												{
+										%>
+									<li class="menu-item-has-children hidden"><a href="#"><%=categories[i].cname %></a>
+										<%          
+											   }
+										%>
+
+										<ul class="category-mega-menu">
+
+											<%          for (int j = 0; j < categories[i].childrens.Count; j++)
+														{%>
+
+											<li><a href="shop.aspx?method=findByCid&cid=<%=categories[i].childrens[j].cid %>"><%=categories[i].childrens[j].cname %></a></li>
+
+											<%           }%>
+										</ul>
+									</li>
+									<%}
+											else
+											{%>
+									<% if (i < 4)
+									   {
+									%>
+									<li><a href="#"><%=categories[i].cname %></a>
+										<%          }
+									   else
+									   {
+										%>
+									<li class="hidden"><a href="#"><%=categories[i].cname %></a>
+										<%          
+											   }
+										%>
+
+										<% }
+
+										}    
+										
+										%>
+									<li><a href="#" id="more-btn">... More</a></li>
+								</ul>
+							</nav>
+						</div>
+
+						<!--=======  End of category menu =======-->
+
+						<!--=======  sticky logo  =======-->
+
+						<div class="sticky-logo">
+							<a href="index.aspx">
+								<img src="assets/images/logo4.png" class="img-fluid" alt="">
+							</a>
+						</div>
+
+						<!--=======  End of sticky logo  =======-->
+
+						<!--=======  search icon for tablet  =======-->
+
+						<div class="search-icon-menutop-tablet text-right d-inline-block d-lg-none">
+							<a href="#" id="search-overlay-active-button">
+								<i class="icon ion-md-search"></i>
+							</a>
+						</div>
+
+						<!--=======  End of search icon for tablet  =======-->
+					</div>
+					<div class="col-12 col-lg-6">
+						<!-- navigation section -->
+						<div class="main-menu">
+							<nav>
+								<ul>
+									<li id="homeMenu"><a href="index.aspx">主页</a></li>
+									<li id="shopMenu"><a href="shop.aspx">商店</a></li>
+									<li id="contactMenu"><a href="contact.aspx">联系</a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- end of navigation section -->
+					</div>
+					<div class="col-12 col-lg-3">
+						<!--=======  navigation search bar  =======-->
+
+						<div class="navigation-search d-none d-lg-block">
+							<form id="searchForm" action="searchPage.aspx?method=findByBname" method="post">
+								<input type="search" name="searchKeyWord"  placeholder="查找" >
+								<button type="submit"><i class="icon ion-md-search"></i></button>
+							</form>
+						</div>
+
+						<!--=======  End of navigation search bar  =======-->
+					</div>
+					<div class="col-12 d-block d-lg-none">
+						<!-- Mobile Menu -->
+						<div class="mobile-menu"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--=====  End of 导航栏  ======-->
+
+	</div>
+
+	<!--=====  End of 头部  ======-->
+
+
+	<form id="form1" runat="server">
+		<div>
+			<asp:ScriptManager ID="ScriptManager1" runat="server" />
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				<!--子页面-->
+			</asp:ContentPlaceHolder>
+		</div>
+	</form>
+
+	<!--=============================================
+	=            页脚         =
+	=============================================-->
+
+	<div class="footer-container">
+		<!--=======  footer navigation  =======-->
+
+		<div class="footer-navigation pt-40 pb-20 pb-lg-40 pt-sm-30 pb-sm-10">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<!--=======  address block  =======-->
+
+						<div class="address-block">
+							<div class="image">
+								<a href="index.aspx">
+									<img src="assets/images/logo4.png" class="img-fluid" alt="">
+								</a>
+							</div>
+
+							<div class="address-text">
+								<ul>
+									<li>地址: 广东省江门市蓬江区五邑大学</li>
+									<li>联系: 123456789</li>
+									<li>邮箱: 123456@qq.com</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<!--=======  End of address block  =======-->
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+
+		<!--=======  End of footer navigation  =======-->
+
+		<!--=======  footer copyright  =======-->
+
+		<div class="footer-copyright pt-20 pb-20">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-6 text-center text-md-left mb-20 mb-md-0">
+						<!--=======  footer copyright text  =======-->
+
+						<div class="footer-copyright-text">
+							<p>Copyright &copy; 2020 End, All Rights Reserved.</p>
+						</div>
+
+						<!--=======  End of footer copyright text  =======-->
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<!--=======  End of footer copyright  =======-->
+	</div>
+
+	<!--=====  End of 页脚  ======-->
+
+	<!--=============================================
+	=            search overlay         =
+	=============================================-->
+
+	<div class="search-overlay" id="search-overlay">
+		<a href="#" class="search-overlay-close" id="search-overlay-close"><i class="fa fa-times"></i></a>
+		<div class="search-box">
+			<input type="search" placeholder="Search entire store here">
+			<button><i class="icon ion-md-search"></i></button>
+		</div>
+	</div>
+
+	<!--=====  End of search overlay  ======-->
+
+	<!-- scroll to top  -->
+	<a href="#" class="scroll-top"></a>
+	<!-- end of scroll to top -->
+
+	<!-- JS
+	============================================ -->
+	<script src="assets/js/myjs.js"></script>
+
+	<!-- Popper JS -->
+	<script src="assets/js/popper.min.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- Plugins JS -->
+	<script src="assets/js/plugins.js"></script>
+
+	<!-- Main JS -->
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>

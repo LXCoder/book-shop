@@ -1,0 +1,11 @@
+﻿body {
+}
+
+.pLink a:hover {
+    color: #9acf6a;
+}
+
+.choosed {
+    color: #9acf6a;
+    text-decoration: underline;
+}

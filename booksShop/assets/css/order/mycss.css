@@ -1,0 +1,46 @@
+﻿body {
+}
+
+a.functionicon {
+    background: #9acf6a;
+    width: 50px;
+    height: 50px;
+    display: none;
+    text-align: center;
+    color: #fff;
+    font-family: 'FontAwesome';
+    position: fixed;
+    right: 25px;
+    display: inline;
+    z-index: 50000;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+  a.functionicon:after {
+    display: inline;
+    font-size: 30px;
+    line-height: 40px; }
+  a.functionicon:hover {
+    background-color: #9acf6a;
+    color: #ffffff;
+    border: 2px solid #9acf6a; }
+
+a.icon-add:after {
+    content: "+";
+}
+
+a.icon-position-add {
+    bottom: 25px;
+}
+
+a.icon-position-search {
+    bottom: 85px;
+}
+
+
+.twoLevel {
+    
+}
+
+
+

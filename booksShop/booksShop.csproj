@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{478E6DA1-0D12-4AB0-8A69-2324FFFF2685}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>booksShop</RootNamespace>
+    <AssemblyName>booksShop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\Desktop\NewtonJson\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\bookAdmin.aspx" />
+    <Content Include="admin\categoryAdmin.aspx" />
+    <Content Include="admin\index.aspx" />
+    <Content Include="admin\login.aspx" />
+    <Content Include="admin\orderAdmin.aspx" />
+    <Content Include="App_Data\Goods.mdf" />
+    <Content Include="App_Data\Goods_log.ldf">
+      <DependentUpon>Goods.mdf</DependentUpon>
+    </Content>
+    <Content Include="assets\css\admin\book.css" />
+    <Content Include="assets\css\admin\category.css" />
+    <Content Include="assets\css\admin\order.css" />
+    <Content Include="assets\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\helper.css" />
+    <Content Include="assets\css\ionicons.min.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\order\mycss.css" />
+    <Content Include="assets\css\order\orderList.css" />
+    <Content Include="assets\css\plugins.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\sweetalert2.min.css" />
+    <Content Include="assets\css\toastr.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\images\backgrounds\bg1.jpg" />
+    <Content Include="assets\images\banners\about-banner.jpg" />
+    <Content Include="assets\images\banners\banner1.jpg" />
+    <Content Include="assets\images\banners\banner10.jpg" />
+    <Content Include="assets\images\banners\banner11.jpg" />
+    <Content Include="assets\images\banners\banner12.jpg" />
+    <Content Include="assets\images\banners\banner13.jpg" />
+    <Content Include="assets\images\banners\banner14.jpg" />
+    <Content Include="assets\images\banners\banner15.jpg" />
+    <Content Include="assets\images\banners\banner16.jpg" />
+    <Content Include="assets\images\banners\banner17.jpg" />
+    <Content Include="assets\images\banners\banner18.jpg" />
+    <Content Include="assets\images\banners\banner19.jpg" />
+    <Content Include="assets\images\banners\banner2.jpg" />
+    <Content Include="assets\images\banners\banner20.jpg" />
+    <Content Include="assets\images\banners\banner21.jpg" />
+    <Content Include="assets\images\banners\banner22.jpg" />
+    <Content Include="assets\images\banners\banner3.jpg" />
+    <Content Include="assets\images\banners\banner4.jpg" />
+    <Content Include="assets\images\banners\banner5.jpg" />
+    <Content Include="assets\images\banners\banner6.jpg" />
+    <Content Include="assets\images\banners\banner7.jpg" />
+    <Content Include="assets\images\banners\banner8.jpg" />
+    <Content Include="assets\images\banners\banner9.jpg" />
+    <Content Include="assets\images\banners\home3-banner1.jpg" />
+    <Content Include="assets\images\banners\home3-banner2.jpg" />
+    <Content Include="assets\images\banners\home3-banner3.jpg" />
+    <Content Include="assets\images\banners\home3-banner8.jpg" />
+    <Content Include="assets\images\banners\megamenu-banner.jpg" />
+    <Content Include="assets\images\blog-image\01.jpg" />
+    <Content Include="assets\images\blog-image\02.jpg" />
+    <Content Include="assets\images\blog-image\03.jpg" />
+    <Content Include="assets\images\blog-image\comment-icon.png" />
+    <Content Include="assets\images\blog-image\small-01.jpg" />
+    <Content Include="assets\images\blog-image\small-02.jpg" />
+    <Content Include="assets\images\blog-image\small-03.jpg" />
+    <Content Include="assets\images\blog-image\small-04.jpg" />
+    <Content Include="assets\images\book_img\20285763-1_b.jpg" />
+    <Content Include="assets\images\book_img\20285763-1_w.jpg" />
+    <Content Include="assets\images\book_img\20412979-1_b.jpg" />
+    <Content Include="assets\images\book_img\20412979-1_w.jpg" />
+    <Content Include="assets\images\book_img\20417467-1_b.jpg" />
+    <Content Include="assets\images\book_img\20417467-1_w.jpg" />
+    <Content Include="assets\images\book_img\20420983-1_b.jpg" />
+    <Content Include="assets\images\book_img\20420983-1_w.jpg" />
+    <Content Include="assets\images\book_img\20446562-1_b.jpg" />
+    <Content Include="assets\images\book_img\20446562-1_w.jpg" />
+    <Content Include="assets\images\book_img\20459091-1_b.jpg" />
+    <Content Include="assets\images\book_img\20459091-1_w.jpg" />
+    <Content Include="assets\images\book_img\20500255-1_b.jpg" />
+    <Content Include="assets\images\book_img\20500255-1_w.jpg" />
+    <Content Include="assets\images\book_img\20637368-1_b_2.jpg" />
+    <Content Include="assets\images\book_img\20637368-1_w_2.jpg" />
+    <Content Include="assets\images\book_img\20756351-1_b_1.jpg" />
+    <Content Include="assets\images\book_img\20756351-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\20773347-1_b.jpg" />
+    <Content Include="assets\images\book_img\20773347-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\20810282-1_b.jpg" />
+    <Content Include="assets\images\book_img\20810282-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\20813806-1_b.jpg" />
+    <Content Include="assets\images\book_img\20813806-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\20915948-1_b.jpg" />
+    <Content Include="assets\images\book_img\20915948-1_w_3.jpg" />
+    <Content Include="assets\images\book_img\20928547-1_b.jpg" />
+    <Content Include="assets\images\book_img\20928547-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\20988080-1_b.jpg" />
+    <Content Include="assets\images\book_img\20988080-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\20991549-1_b.jpg" />
+    <Content Include="assets\images\book_img\20991549-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21006995-1_b.jpg" />
+    <Content Include="assets\images\book_img\21006995-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21049601-1_b.jpg" />
+    <Content Include="assets\images\book_img\21049601-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21108671-1_b.jpg" />
+    <Content Include="assets\images\book_img\21108671-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21110929-1_b.jpg" />
+    <Content Include="assets\images\book_img\21110929-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21110930-1_b.jpg" />
+    <Content Include="assets\images\book_img\21110930-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21117631-1_b.jpg" />
+    <Content Include="assets\images\book_img\21117631-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21118835-1_b.jpg" />
+    <Content Include="assets\images\book_img\21118835-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\21122188-1_b.jpg" />
+    <Content Include="assets\images\book_img\21122188-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\22577578-1_b.jpg" />
+    <Content Include="assets\images\book_img\22577578-1_w.jpg" />
+    <Content Include="assets\images\book_img\22579686-1_b.jpg" />
+    <Content Include="assets\images\book_img\22579686-1_w.jpg" />
+    <Content Include="assets\images\book_img\22588603-1_b.jpg" />
+    <Content Include="assets\images\book_img\22588603-1_l.jpg" />
+    <Content Include="assets\images\book_img\22588603-1_w.jpg" />
+    <Content Include="assets\images\book_img\22605701-1_b.jpg" />
+    <Content Include="assets\images\book_img\22605701-1_w.jpg" />
+    <Content Include="assets\images\book_img\22606835-1_b.jpg" />
+    <Content Include="assets\images\book_img\22606835-1_w.jpg" />
+    <Content Include="assets\images\book_img\22606836-1_b.jpg" />
+    <Content Include="assets\images\book_img\22606836-1_w.jpg" />
+    <Content Include="assets\images\book_img\22623020-1_b.jpg" />
+    <Content Include="assets\images\book_img\22623020-1_w.jpg" />
+    <Content Include="assets\images\book_img\22623766-1_b.jpg" />
+    <Content Include="assets\images\book_img\22623766-1_w.jpg" />
+    <Content Include="assets\images\book_img\22628333-1_b.jpg" />
+    <Content Include="assets\images\book_img\22628333-1_w.jpg" />
+    <Content Include="assets\images\book_img\22633574-1_b.jpg" />
+    <Content Include="assets\images\book_img\22633574-1_w.jpg" />
+    <Content Include="assets\images\book_img\22638286-1_b.jpg" />
+    <Content Include="assets\images\book_img\22638286-1_w.jpg" />
+    <Content Include="assets\images\book_img\22685703-1_b.jpg" />
+    <Content Include="assets\images\book_img\22685703-1_w.jpg" />
+    <Content Include="assets\images\book_img\22692811-1_b.jpg" />
+    <Content Include="assets\images\book_img\22692811-1_w.jpg" />
+    <Content Include="assets\images\book_img\22717349-1_b.jpg" />
+    <Content Include="assets\images\book_img\22717349-1_w.jpg" />
+    <Content Include="assets\images\book_img\22722790-1_b.jpg" />
+    <Content Include="assets\images\book_img\22722790-1_w.jpg" />
+    <Content Include="assets\images\book_img\22757564-1_b.jpg" />
+    <Content Include="assets\images\book_img\22757564-1_w.jpg" />
+    <Content Include="assets\images\book_img\22783904-1_b.jpg" />
+    <Content Include="assets\images\book_img\22783904-1_w.jpg" />
+    <Content Include="assets\images\book_img\22786088-1_b.jpg" />
+    <Content Include="assets\images\book_img\22786088-1_w.jpg" />
+    <Content Include="assets\images\book_img\22788412-1_b.jpg" />
+    <Content Include="assets\images\book_img\22788412-1_w.jpg" />
+    <Content Include="assets\images\book_img\22813026-1_b.jpg" />
+    <Content Include="assets\images\book_img\22813026-1_w.jpg" />
+    <Content Include="assets\images\book_img\22819430-1_b.jpg" />
+    <Content Include="assets\images\book_img\22819430-1_w.jpg" />
+    <Content Include="assets\images\book_img\22839309-1_b.jpg" />
+    <Content Include="assets\images\book_img\22839309-1_w.jpg" />
+    <Content Include="assets\images\book_img\22844118-1_b.jpg" />
+    <Content Include="assets\images\book_img\22844118-1_w.jpg" />
+    <Content Include="assets\images\book_img\22847009-1_b.jpg" />
+    <Content Include="assets\images\book_img\22847009-1_w.jpg" />
+    <Content Include="assets\images\book_img\22862056-1_b.jpg" />
+    <Content Include="assets\images\book_img\22862056-1_w.jpg" />
+    <Content Include="assets\images\book_img\22862057-1_b.jpg" />
+    <Content Include="assets\images\book_img\22862057-1_w.jpg" />
+    <Content Include="assets\images\book_img\22862060-1_b.jpg" />
+    <Content Include="assets\images\book_img\22862060-1_w.jpg" />
+    <Content Include="assets\images\book_img\22862061-1_b.jpg" />
+    <Content Include="assets\images\book_img\22862061-1_w.jpg" />
+    <Content Include="assets\images\book_img\22868759-1_b.jpg" />
+    <Content Include="assets\images\book_img\22868759-1_w.jpg" />
+    <Content Include="assets\images\book_img\22872884-1_b.jpg" />
+    <Content Include="assets\images\book_img\22872884-1_w.jpg" />
+    <Content Include="assets\images\book_img\22873894-1_b.jpg" />
+    <Content Include="assets\images\book_img\22873894-1_w.jpg" />
+    <Content Include="assets\images\book_img\22881618-1_b.jpg" />
+    <Content Include="assets\images\book_img\22881618-1_w.jpg" />
+    <Content Include="assets\images\book_img\22881803-1_b.jpg" />
+    <Content Include="assets\images\book_img\22881803-1_w.jpg" />
+    <Content Include="assets\images\book_img\22886581-1_b.jpg" />
+    <Content Include="assets\images\book_img\22886581-1_w.jpg" />
+    <Content Include="assets\images\book_img\22910975-1_b.jpg" />
+    <Content Include="assets\images\book_img\22910975-1_w.jpg" />
+    <Content Include="assets\images\book_img\22928649-1_b.jpg" />
+    <Content Include="assets\images\book_img\22928649-1_w.jpg" />
+    <Content Include="assets\images\book_img\22938396-1_b.jpg" />
+    <Content Include="assets\images\book_img\22938396-1_w.jpg" />
+    <Content Include="assets\images\book_img\22938474-1_b.jpg" />
+    <Content Include="assets\images\book_img\22938474-1_w.jpg" />
+    <Content Include="assets\images\book_img\23042420-1_b.jpg" />
+    <Content Include="assets\images\book_img\23042420-1_w.jpg" />
+    <Content Include="assets\images\book_img\23169892-1_b.jpg" />
+    <Content Include="assets\images\book_img\23169892-1_w.jpg" />
+    <Content Include="assets\images\book_img\23179003-1_b.jpg" />
+    <Content Include="assets\images\book_img\23179003-1_w.jpg" />
+    <Content Include="assets\images\book_img\23184673-1_b.jpg" />
+    <Content Include="assets\images\book_img\23184673-1_w.jpg" />
+    <Content Include="assets\images\book_img\23200995-1_b.jpg" />
+    <Content Include="assets\images\book_img\23200995-1_w.jpg" />
+    <Content Include="assets\images\book_img\23201813-1_b.jpg" />
+    <Content Include="assets\images\book_img\23201813-1_w.jpg" />
+    <Content Include="assets\images\book_img\23219358-1_b.jpg" />
+    <Content Include="assets\images\book_img\23219358-1_w.jpg" />
+    <Content Include="assets\images\book_img\23219731-1_b.jpg" />
+    <Content Include="assets\images\book_img\23219731-1_w.jpg" />
+    <Content Include="assets\images\book_img\23224089-1_b.jpg" />
+    <Content Include="assets\images\book_img\23224089-1_w.jpg" />
+    <Content Include="assets\images\book_img\23239786-1_b.jpg" />
+    <Content Include="assets\images\book_img\23239786-1_w.jpg" />
+    <Content Include="assets\images\book_img\23252196-1_b.jpg" />
+    <Content Include="assets\images\book_img\23252196-1_w.jpg" />
+    <Content Include="assets\images\book_img\23254532-1_b.jpg" />
+    <Content Include="assets\images\book_img\23254532-1_w.jpg" />
+    <Content Include="assets\images\book_img\23259731-1_b.jpg" />
+    <Content Include="assets\images\book_img\23259731-1_w.jpg" />
+    <Content Include="assets\images\book_img\23263012-1_b.jpg" />
+    <Content Include="assets\images\book_img\23263012-1_w.jpg" />
+    <Content Include="assets\images\book_img\23266270-1_b.jpg" />
+    <Content Include="assets\images\book_img\23266270-1_w.jpg" />
+    <Content Include="assets\images\book_img\23266633-1_b.jpg" />
+    <Content Include="assets\images\book_img\23266633-1_w.jpg" />
+    <Content Include="assets\images\book_img\23266635-1_b.jpg" />
+    <Content Include="assets\images\book_img\23266635-1_w.jpg" />
+    <Content Include="assets\images\book_img\23268958-1_b.jpg" />
+    <Content Include="assets\images\book_img\23268958-1_w.jpg" />
+    <Content Include="assets\images\book_img\23280478-1_b.jpg" />
+    <Content Include="assets\images\book_img\23280478-1_w.jpg" />
+    <Content Include="assets\images\book_img\23280479-1_b.jpg" />
+    <Content Include="assets\images\book_img\23280479-1_w.jpg" />
+    <Content Include="assets\images\book_img\23301847-1_b.jpg" />
+    <Content Include="assets\images\book_img\23301847-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\23329703-1_b.jpg" />
+    <Content Include="assets\images\book_img\23329703-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\23339643-1_b.jpg" />
+    <Content Include="assets\images\book_img\23339643-1_w.jpg" />
+    <Content Include="assets\images\book_img\23348683-1_b.jpg" />
+    <Content Include="assets\images\book_img\23348683-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\23351049-1_b.jpg" />
+    <Content Include="assets\images\book_img\23351049-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\23362142-1_b.jpg" />
+    <Content Include="assets\images\book_img\23362142-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\23363997-1_b.jpg" />
+    <Content Include="assets\images\book_img\23363997-1_w_1.jpg" />
+    <Content Include="assets\images\book_img\23368351-1_b.jpg" />
+    <Content Include="assets\images\book_img\23368351-1_w_2.jpg" />
+    <Content Include="assets\images\book_img\25079041-1_l_5.jpg" />
+    <Content Include="assets\images\book_img\25079041-1_u_5.jpg" />
+    <Content Include="assets\images\book_img\26183288-1_l_2.jpg" />
+    <Content Include="assets\images\book_img\26183288-1_u_2.jpg" />
+    <Content Include="assets\images\book_img\26436060-1_l_4.jpg" />
+    <Content Include="assets\images\book_img\26436060-1_u_4.jpg" />
+    <Content Include="assets\images\book_img\26475648-2_l_2.jpg" />
+    <Content Include="assets\images\book_img\26475648-2_u_2.jpg" />
+    <Content Include="assets\images\book_img\696673-1_b.jpg" />
+    <Content Include="assets\images\book_img\696673-1_w.jpg" />
+    <Content Include="assets\images\book_img\9062293-1_b.jpg" />
+    <Content Include="assets\images\book_img\9062293-1_w.jpg" />
+    <Content Include="assets\images\book_img\9186890-1_b.jpg" />
+    <Content Include="assets\images\book_img\9186890-1_w.jpg" />
+    <Content Include="assets\images\book_img\9265169-1_b.jpg" />
+    <Content Include="assets\images\book_img\9265169-1_w.jpg" />
+    <Content Include="assets\images\book_img\9288920-1_b.jpg" />
+    <Content Include="assets\images\book_img\9288920-1_w.jpg" />
+    <Content Include="assets\images\book_img\9317290-1_b.jpg" />
+    <Content Include="assets\images\book_img\9317290-1_w.jpg" />
+    <Content Include="assets\images\book_img\book1.jpg" />
+    <Content Include="assets\images\brands\01.png" />
+    <Content Include="assets\images\brands\02.png" />
+    <Content Include="assets\images\brands\03.png" />
+    <Content Include="assets\images\brands\04.png" />
+    <Content Include="assets\images\cuohao.png" />
+    <Content Include="assets\images\duihao.jpg" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\icons\error.png" />
+    <Content Include="assets\images\icons\featured-category\01.png" />
+    <Content Include="assets\images\icons\featured-category\02.png" />
+    <Content Include="assets\images\icons\featured-category\03.png" />
+    <Content Include="assets\images\icons\featured-category\04.png" />
+    <Content Include="assets\images\icons\featured-category\05.png" />
+    <Content Include="assets\images\icons\featured-category\06.png" />
+    <Content Include="assets\images\icons\featured-category\07.png" />
+    <Content Include="assets\images\icons\map-marker.png" />
+    <Content Include="assets\images\icons\separator-icon.png" />
+    <Content Include="assets\images\icons\sidebar1.png" />
+    <Content Include="assets\images\icons\slider-icon.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo2.png" />
+    <Content Include="assets\images\logo4.png" />
+    <Content Include="assets\images\payment.png" />
+    <Content Include="assets\images\products\product01-2.jpg" />
+    <Content Include="assets\images\products\product01.jpg" />
+    <Content Include="assets\images\products\product02-2.jpg" />
+    <Content Include="assets\images\products\product02.jpg" />
+    <Content Include="assets\images\products\product03-2.jpg" />
+    <Content Include="assets\images\products\product03.jpg" />
+    <Content Include="assets\images\products\product04-2.jpg" />
+    <Content Include="assets\images\products\product04.jpg" />
+    <Content Include="assets\images\products\product05-2.jpg" />
+    <Content Include="assets\images\products\product05.jpg" />
+    <Content Include="assets\images\products\product06-2.jpg" />
+    <Content Include="assets\images\products\product06.jpg" />
+    <Content Include="assets\images\products\product07-2.jpg" />
+    <Content Include="assets\images\products\product07.jpg" />
+    <Content Include="assets\images\products\product08-2.jpg" />
+    <Content Include="assets\images\products\product08.jpg" />
+    <Content Include="assets\images\products\product09-2.jpg" />
+    <Content Include="assets\images\products\product09.jpg" />
+    <Content Include="assets\images\products\product10-2.jpg" />
+    <Content Include="assets\images\products\product10.jpg" />
+    <Content Include="assets\images\products\product11-2.jpg" />
+    <Content Include="assets\images\products\product11.jpg" />
+    <Content Include="assets\images\products\product12-2.jpg" />
+    <Content Include="assets\images\products\product12.jpg" />
+    <Content Include="assets\images\products\tab-product01.jpg" />
+    <Content Include="assets\images\products\tab-product02.jpg" />
+    <Content Include="assets\images\products\tab-product03.jpg" />
+    <Content Include="assets\images\single-product-slider\01.jpg" />
+    <Content Include="assets\images\single-product-slider\02.jpg" />
+    <Content Include="assets\images\single-product-slider\03.jpg" />
+    <Content Include="assets\images\single-product-slider\04.jpg" />
+    <Content Include="assets\images\single-product-slider\05.jpg" />
+    <Content Include="assets\images\sliders\02.jpg" />
+    <Content Include="assets\images\sliders\03.jpg" />
+    <Content Include="assets\images\sliders\04.jpg" />
+    <Content Include="assets\images\sliders\05.jpg" />
+    <Content Include="assets\images\sliders\07.jpg" />
+    <Content Include="assets\images\sliders\08.jpg" />
+    <Content Include="assets\images\sliders\09.jpg" />
+    <Content Include="assets\images\sliders\10.jpg" />
+    <Content Include="assets\images\sliders\11.jpg" />
+    <Content Include="assets\images\sliders\12.jpg" />
+    <Content Include="assets\images\sliders\13.jpg" />
+    <Content Include="assets\images\sliders\14.jpg" />
+    <Content Include="assets\images\sliders\15.jpg" />
+    <Content Include="assets\images\sliders\16.jpg" />
+    <Content Include="assets\images\sliders\blog\01.jpg" />
+    <Content Include="assets\images\sliders\blog\02.jpg" />
+    <Content Include="assets\images\sliders\blog\03.jpg" />
+    <Content Include="assets\images\sliders\blog\04.jpg" />
+    <Content Include="assets\images\sliders\blog\05.jpg" />
+    <Content Include="assets\images\sliders\blog\06.jpg" />
+    <Content Include="assets\js\admin\book.js" />
+    <Content Include="assets\js\admin\category.js" />
+    <Content Include="assets\js\admin\Chart.js" />
+    <Content Include="assets\js\admin\index.js" />
+    <Content Include="assets\js\admin\order.js" />
+    <Content Include="assets\js\ajax-mail.js" />
+    <Content Include="assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="assets\js\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\cart\cart.js" />
+    <Content Include="assets\js\dist\distpicker.common.js" />
+    <Content Include="assets\js\dist\distpicker.esm.js" />
+    <Content Include="assets\js\dist\distpicker.js" />
+    <Content Include="assets\js\dist\distpicker.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\myjs.js" />
+    <Content Include="assets\js\plugins.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\sweetalert2.all.min.js" />
+    <Content Include="assets\js\sweetalert2.min.js" />
+    <Content Include="assets\js\toastr.min.js" />
+    <Content Include="assets\js\user\login.js" />
+    <Content Include="assets\js\user\pwd.js" />
+    <Content Include="assets\js\user\regist.js" />
+    <Content Include="assets\js\vendor\jquery.form.js" />
+    <Content Include="assets\js\vendor\jquery.min.js" />
+    <Content Include="assets\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="cart.aspx" />
+    <Content Include="checkout.aspx" />
+    <Content Include="contact.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="shop.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="msg.aspx" />
+    <Content Include="myAccount.aspx" />
+    <Content Include="ordersuccess.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="searchPage.aspx" />
+    <Content Include="single-product.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\bookAdmin.aspx.cs">
+      <DependentUpon>bookAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\bookAdmin.aspx.designer.cs">
+      <DependentUpon>bookAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\categoryAdmin.aspx.cs">
+      <DependentUpon>categoryAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\categoryAdmin.aspx.designer.cs">
+      <DependentUpon>categoryAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\orderAdmin.aspx.cs">
+      <DependentUpon>orderAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\orderAdmin.aspx.designer.cs">
+      <DependentUpon>orderAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\admin\AdminDao.cs" />
+    <Compile Include="admin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\admin\AdminService.cs" />
+    <Compile Include="App_Code\book\BookDao.cs" />
+    <Compile Include="App_Code\book\BookService.cs" />
+    <Compile Include="App_Code\cart\CartItemDao.cs" />
+    <Compile Include="App_Code\cart\CartItemService.cs" />
+    <Compile Include="App_Code\category\CategoryDao.cs" />
+    <Compile Include="App_Code\category\CategoryService.cs" />
+    <Compile Include="App_Code\collection\CollectionDao.cs" />
+    <Compile Include="App_Code\collection\CollectionService.cs" />
+    <Compile Include="App_Code\Goods.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Goods.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\order\OrderDao.cs" />
+    <Compile Include="App_Code\order\OrderService.cs" />
+    <Compile Include="App_Code\page\Expression.cs" />
+    <Compile Include="App_Code\page\PageBean.cs" />
+    <Compile Include="App_Code\page\PageConstants.cs" />
+    <Compile Include="App_Code\user\UserDao.cs" />
+    <Compile Include="App_Code\user\UserService.cs" />
+    <Compile Include="App_Code\util\CommonModel.cs" />
+    <Compile Include="App_Code\util\ConstanctString.cs" />
+    <Compile Include="App_Code\util\P2BEmail.cs" />
+    <Compile Include="App_Code\util\CollectionUtil.cs" />
+    <Compile Include="App_Code\util\VerifyCodeUtil.cs" />
+    <Compile Include="cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="msg.aspx.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="msg.aspx.designer.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myAccount.aspx.cs">
+      <DependentUpon>myAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myAccount.aspx.designer.cs">
+      <DependentUpon>myAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ordersuccess.aspx.cs">
+      <DependentUpon>ordersuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ordersuccess.aspx.designer.cs">
+      <DependentUpon>ordersuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="searchPage.aspx.cs">
+      <DependentUpon>searchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="searchPage.aspx.designer.cs">
+      <DependentUpon>searchPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="single-product.aspx.cs">
+      <DependentUpon>single-product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="single-product.aspx.designer.cs">
+      <DependentUpon>single-product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\ionicons.eot" />
+    <Content Include="assets\fonts\ionicons.ttf" />
+    <Content Include="assets\fonts\ionicons.woff" />
+    <Content Include="assets\fonts\ionicons.woff2" />
+    <Content Include="Site.Master" />
+    <Content Include="Site1.Master" />
+    <Content Include="admin\Handler.ashx" />
+    <Content Include="App_Code\Goods.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Goods.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Code\Goods.dbml.layout">
+      <DependentUpon>Goods.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1058</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22256/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,15 @@
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\bin\booksShop.dll
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\bin\booksShop.pdb
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\obj\Debug\booksShop.dll
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\obj\Debug\booksShop.pdb
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\obj\Debug\booksShop.csprojResolveAssemblyReference.cache
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\bin\Newtonsoft.Json.dll
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\bin\Newtonsoft.Json.pdb
+C:\Users\LuxiZheng\documents\visual studio 2012\Projects\booksShop\booksShop\bin\Newtonsoft.Json.xml
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\bin\booksShop.dll
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\bin\booksShop.pdb
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\bin\Newtonsoft.Json.pdb
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\bin\Newtonsoft.Json.xml
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\obj\Debug\booksShop.csprojResolveAssemblyReference.cache
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\obj\Debug\booksShop.dll
+C:\Users\LuxiZheng\Desktop\booksShop\booksShop\obj\Debug\booksShop.pdb

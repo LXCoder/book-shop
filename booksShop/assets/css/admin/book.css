@@ -1,0 +1,28 @@
+﻿body {
+}
+
+.myMenu {
+    background:#fff;
+    text-align: center;
+    color: #333;
+    position: fixed;
+    left: 25px;
+    display: inline;
+    z-index: 50000;
+    border: 2px solid #9acf6a;
+    bottom: auto;
+    border-radius: 3%;
+}
+
+
+li.dropdown {
+    border:1px outset #fff;
+}
+
+.mousehover {
+    background:#9acf6a;
+}
+
+.mouseout{
+    background:#fff;
+}

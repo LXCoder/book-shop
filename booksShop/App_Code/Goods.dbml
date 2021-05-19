@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Goods" Class="GoodsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Admin" Member="Admin">
+    <Type Name="Admin">
+      <Column Name="adminId" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="adminname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adminpwd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="User">
+    <Type Name="User">
+      <Column Name="uid" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="loginname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loginpass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="activationCode" Type="System.String" DbType="Char(64)" CanBeNull="true" />
+      <Association Name="User_CartItem_" Member="CartItem_" ThisKey="uid" OtherKey="uid_" Type="CartItem_" />
+      <Association Name="User_Collection" Member="Collection" ThisKey="uid" OtherKey="uid" Type="Collection" />
+      <Association Name="User_Order" Member="Order" ThisKey="uid" OtherKey="uid" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Book" Member="Book">
+    <Type Name="Book">
+      <Column Name="bid" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="bname" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="currPrice" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="discount" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="press" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="publishtime" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="edition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pageNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="wordNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="printtime" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="booksize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="paper" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="image_w" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="image_b" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="orderBy" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="xingji" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="deal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Book_CartItem_" Member="CartItem_" ThisKey="bid" OtherKey="bid_" Type="CartItem_" />
+      <Association Name="Book_Collection" Member="Collection" ThisKey="bid" OtherKey="bid" Type="Collection" />
+      <Association Name="Category_Book" Member="Category" ThisKey="cid" OtherKey="cid" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[CartItem ]" Member="CartItem_">
+    <Type Name="CartItem_">
+      <Column Name="[cartItemId ]" Member="cartItemId_" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[quantity ]" Member="quantity_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[bid ]" Member="bid_" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="[uid ]" Member="uid_" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="orderBy" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Book_CartItem_" Member="Book" ThisKey="bid_" OtherKey="bid" Type="Book" IsForeignKey="true" />
+      <Association Name="User_CartItem_" Member="User" ThisKey="uid_" OtherKey="uid" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Category">
+    <Type Name="Category">
+      <Column Name="cid" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="orderBy" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Category_Book" Member="Book" ThisKey="cid" OtherKey="cid" Type="Book" />
+      <Association Name="Category_Category" Member="Category2" ThisKey="cid" OtherKey="pid" Type="Category" />
+      <Association Name="Category_Category" Member="Category1" ThisKey="pid" OtherKey="cid" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Collection" Member="Collection">
+    <Type Name="Collection">
+      <Column Name="sid" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="bid" Type="System.String" DbType="Char(32) NOT NULL" CanBeNull="false" />
+      <Column Name="uid" Type="System.String" DbType="Char(32) NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Collection" Member="Book" ThisKey="bid" OtherKey="bid" Type="Book" IsForeignKey="true" />
+      <Association Name="User_Collection" Member="User" ThisKey="uid" OtherKey="uid" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Order]" Member="Order">
+    <Type Name="Order">
+      <Column Name="oid" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ordertime" Type="System.String" DbType="Char(19)" CanBeNull="true" />
+      <Column Name="total" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="uid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Association Name="Order_Orderitem" Member="Orderitem" ThisKey="oid" OtherKey="oid" Type="Orderitem" />
+      <Association Name="User_Order" Member="User" ThisKey="uid" OtherKey="uid" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orderitem" Member="Orderitem">
+    <Type Name="Orderitem">
+      <Column Name="orderItemId" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="subtotal" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="bid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="bname" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="currPrice" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="image_b" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="oid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Association Name="Order_Orderitem" Member="Order" ThisKey="oid" OtherKey="oid" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

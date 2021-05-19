@@ -1,0 +1,240 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="booksShop.Site1" %>
+<%@ Import Namespace="booksShop.App_Code" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>后台管理</title>
+	
+
+	<!-- Favicon -->
+	<link rel="icon" href="assets/images/favicon.ico" />
+
+	<!-- CSS
+	============================================ -->
+	<!-- Bootstrap CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- FontAwesome CSS -->
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+
+	<!-- Ionicons CSS -->
+	<link href="assets/css/ionicons.min.css" rel="stylesheet" />
+
+	<!-- Plugins CSS -->
+	<link href="assets/css/plugins.css" rel="stylesheet" />
+
+	<!-- Helper CSS -->
+	<link href="assets/css/helper.css" rel="stylesheet" />
+
+	<!-- Main CSS -->
+	<link href="assets/css/main.css" rel="stylesheet" />
+
+	<!-- Toastr CSS -->
+	<link href="assets/css/toastr.min.css" rel="stylesheet" />
+
+	<link href="assets/css/style.css" rel="stylesheet" />
+
+	<!-- Sweetalert2 CSS -->
+	<link href="assets/css/sweetalert2.min.css" rel="stylesheet" />
+
+	<link href="assets/css/order/mycss.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+	
+	<!-- jQuery JS -->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+
+   <%
+
+		string username = "账户";
+		if (flag)
+			username = admin.adminname;
+		
+	%>
+
+	<div class="header-container header-sticky">
+
+		<!--=============================================
+		=            第一层         =
+		=============================================-->
+
+		<div class="header-top pt-15 pb-15">
+			<div class="container">
+				<div class="row">
+					
+					<!--=============================================
+					=            时间显示         =
+					=============================================-->
+					<div class="col-12 col-lg-6">
+						<div class="header-top-text text-center text-lg-left mb-0 mb-md-15 mb-sm-15">
+							<p><i class="icon ion-md-alarm"></i><span id="currenTime" class="support-no"></span></p>
+						</div>
+					</div>
+					<!--=====  End of 时间显示  ======-->
+
+					<div class="col-12 col-lg-6">
+
+						<div class="header-top-dropdown d-flex justify-content-center justify-content-lg-end">
+
+							<div class="single-dropdown">
+								<a href="#" id="changeAccount"><span id="accountMenuName"><%=username %> <i class="fa fa-angle-down"></i></span></a>
+								<%
+									if (flag)
+									{
+								%>
+									<a href="login.aspx?method=exit" title="退出"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+								<% 
+									}     
+								%>
+								
+								
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--=====  End of 第一层  ======-->
+
+		<!--=============================================
+		=            导航栏         =
+		=============================================-->
+
+		<div class="navigation-menu">
+			<div class="container">
+				<div class="row align-items-center justify-content-between">
+					<div class="col-4 "></div>
+					<div class="col-8 ">
+						<!-- navigation section -->
+						<div class="main-menu">
+							<nav>
+								<ul>
+									<li id="indexAdmin"><a href="index.aspx">首页</a></li>
+									<li id="bookAdmin"><a href="bookAdmin.aspx">书籍管理</a></li>
+									<li id="categoryAdmin"><a href="categoryAdmin.aspx">分类管理</a></li>
+									<li id="orderAdmin"><a href="orderAdmin.aspx">订单管理</a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- end of navigation section -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--=====  End of 导航栏  ======-->
+
+	</div>
+
+	<!--=====  End of header container  ======-->
+
+	<form id="form1" runat="server">
+		<div>
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				<!--子页面 -->
+			</asp:ContentPlaceHolder>
+		</div>
+	</form>
+
+	<div class="copyrights">
+			<p>Copyright &copy; 2020 End, All Rights Reserved.</p>
+	</div>
+	<!-- Popper JS -->
+	<script src="../assets/js/popper.min.js"></script>
+
+
+	<!-- Plugins JS -->
+	<script src="../assets/js/plugins.js"></script>
+
+	<!-- Main JS -->
+	<script src="../assets/js/main.js"></script>
+
+	<!-- Sweetalert2 JS -->
+	<script src="../assets/js/sweetalert2.all.min.js"></script>
+	<script src="../assets/js/sweetalert2.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+	<!-- Toastr JS -->
+	<script src="../assets/js/toastr.min.js"></script>
+
+	<!-- Modernizer JS -->
+	<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+	
+
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+
+	<script src="../assets/js/cart/cart.js"></script>
+
+	<asp:ContentPlaceHolder ID="footer" runat="server">
+	</asp:ContentPlaceHolder>
+
+	<script>
+
+		$(document).ready(function () {
+			var page = window.location.pathname;
+			if (page.indexOf("admin/bookAdmin.aspx") != -1) {
+				$('#bookAdmin').addClass("active");
+
+			} else if (page.indexOf("admin/categoryAdmin.aspx") != -1) {
+				$('#categoryAdmin').addClass("active");
+			} else if (page.indexOf("admin/orderAdmin.aspx") != -1) {
+				$('#orderAdmin').addClass("active");
+				page = window.location.href;
+				if(page.indexOf("status=") != -1)
+				{
+					var index = page.indexOf("&status=")+8;
+					status = page.substring(index,index+1);
+					status = status-1;
+					$(".pLink").find("a").eq(status).addClass("choosed");
+				}
+			}
+
+		});
+
+		window.onload = function () {
+			//定时器每秒调用一次fnDate()
+			setInterval(function () {
+				fnDate();
+			}, 1000);
+		}
+
+		//js 获取当前时间
+		function fnDate() {
+			var oDiv = document.getElementById("currenTime");
+			var date = new Date();
+			var year = date.getFullYear();//当前年份
+			var month = date.getMonth();//当前月份
+			var data = date.getDate();//天
+			var hours = date.getHours();//小时
+			var minute = date.getMinutes();//分
+			var second = date.getSeconds();//秒
+			var time = year + "-" + fnW((month + 1)) + "-" + fnW(data) + " " + fnW(hours) + ":" + fnW(minute) + ":" + fnW(second);
+			oDiv.innerHTML = time;
+		}
+		//补位 当某个字段不是两位数时补0
+		function fnW(str) {
+			var num;
+			str > 10 ? num = str : num = "0" + str;
+			return num;
+		}
+
+		toastr.options.positionClass = 'toast-center-center';
+	</script>
+
+</body>
+</html>
